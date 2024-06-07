@@ -2,18 +2,6 @@
 
 This project extracts DICOM headers, de-identifies specific tags, and saves the information to a CSV file.
 
-## Directory Structure
-
-dicom-header-extractor/
-│
-├── README.md
-├── config.txt
-├── find_dcm_files.py
-├── extract_dicom_header.py
-├── deidentify.py
-├── save_to_csv.py
-└── main.py
-
 ## Usage
 
 1. Clone the repository:
