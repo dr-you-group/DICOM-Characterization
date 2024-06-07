@@ -12,7 +12,6 @@ If Pydicom is not installed on your system, you can install it using the followi
     pip install pydicom
     ```
 
-
 ## Usage
 
 1. Clone the repository:
@@ -29,3 +28,9 @@ If Pydicom is not installed on your system, you can install it using the followi
     ```
 
 The output CSV file will be generated in the same directory.
+
+
+## References
+
+The DICOM tags selected for de-identification in this project are based on the following paper:
+- Aryanto KYE, Oudkerk M, van Ooijen PMA. Free DICOM de-identification tools in clinical research: functioning and safety of patient privacy. Eur Radiol. 2015;25(12):3685-3695. doi:10.1007/s00330-015-3794-0
