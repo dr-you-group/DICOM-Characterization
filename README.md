@@ -30,6 +30,11 @@ If Pydicom is not installed on your system, you can install it using the followi
 The output CSV file will be generated in the same directory.
 
 
+## Guide
+
+For a step-by-step guide, please refer to the Jupyter Notebook file `DICOM_Header_Extractor_Guide.ipynb`.
+
+
 ## References
 
 The DICOM tags selected for de-identification in this project are based on the following paper:
