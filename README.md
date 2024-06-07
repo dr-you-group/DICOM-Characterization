@@ -2,11 +2,22 @@
 
 This project extracts DICOM headers, de-identifies specific tags, and saves the information to a CSV file.
 
+## Requirements
+
+To run this project, you need the following libraries:
+- Pydicom
+
+If Pydicom is not installed on your system, you can install it using the following command:
+    ```
+    pip install pydicom
+    ```
+
+
 ## Usage
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/dicom-header-extractor.git
+    git clone https://github.com/dr-you-group/dicom-header-extractor.git
     cd dicom-header-extractor
     ```
 
