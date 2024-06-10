@@ -22,7 +22,7 @@ If Pydicom is not installed on your system, you can install it using the followi
 
 2. Run the script:
     ```bash
-    python main.py --directory /path/to/your/directory --deidentify
+    python main.py --directory '/path/to/your/directory' --deidentify
     ```
 
 The output CSV file will be generated in the same directory.
