@@ -2,7 +2,10 @@ import pydicom
 
 def extract_dicom_header(dicom_file):
     ds = pydicom.dcmread(dicom_file)
-    sop_class_uid = ds.get((0x0008, 0x0016), "Unknown SOP Class UID")
+    if ds.SOPClassUID:
+        sop_class_uid = ds.SOPClassUID
+    else:
+        sop_class_uid = 'Unknown SOP Class UID'
     header_info = []
     for elem in ds:
         if elem.tag.group != 0x7FE0:  # Exclude pixel data
