@@ -3,7 +3,7 @@ import pydicom
 def extract_dicom_header(dicom_file):
     ds = pydicom.dcmread(dicom_file)
     if ds.SOPClassUID:
-        sop_class_uid = ds.SOPClassUID
+        sop_class_uid = ds[(0x0008, 0x0016)].value
     else:
         sop_class_uid = 'Unknown SOP Class UID'
     header_info = []
