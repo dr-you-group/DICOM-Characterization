@@ -1,6 +1,6 @@
 # DICOM Header Extractor
 
-This project extracts DICOM headers, de-identifies specific tags, and saves the information to a CSV file.
+This project extracts DICOM headers, de-identifies specific tags (optional), and saves the information to a CSV file.
 
 ## Requirements
 
@@ -20,7 +20,14 @@ If Pydicom is not installed on your system, you can install it using the followi
     cd dicom-header-extractor
     ```
 
-2. Set the directory to search for DICOM files in `config.txt`.
+2. Set the directory to search for DICOM files and the de-identification option in `config.txt`.
+
+
+    Example `config.txt`:
+    ```
+    directory_to_search=/path/to/your/directory
+    deidentify=False
+    ```
 
 3. Run the script:
     ```bash
@@ -28,6 +35,14 @@ If Pydicom is not installed on your system, you can install it using the followi
     ```
 
 The output CSV file will be generated in the same directory.
+
+## Output
+The final output is a CSV file that contains the following columns for each DICOM file:
+- File Name
+- SOP Class UID
+- Tag
+- Attribute Name
+- Value
 
 
 ## Guide

@@ -14,16 +14,19 @@ def load_config(config_file='config.txt'):
 if __name__ == "__main__":
     config = load_config()
     directory_to_search = config.get('directory_to_search', '.')
+    deidentify_option = config.get('deidentify', 'False').lower() == 'true'
     
     dcm_files = find_dcm_files(directory_to_search)
     
     all_headers = []
     for dicom_file in dcm_files:
-        header = extract_dicom_header(dicom_file)
-        header = deidentify(header)
+        header, sop_class_uid = extract_dicom_header(dicom_file)
+        if deidentify_option:
+            header = deidentify(header)
         all_headers.append({
             "File Name": dicom_file,
-            "Header": header
+            "Header": header,
+            "SOP Class UID": sop_class_uid
         })
     
     save_to_csv(all_headers, 'output.csv')
