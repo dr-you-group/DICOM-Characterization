@@ -25,7 +25,7 @@ If Pydicom is not installed on your system, you can install it using the followi
     python main.py --directory '/path/to/your/directory' --deidentify
     ```
 
-The output CSV file will be generated in the same directory.
+The 'output.csv' file will be generated in your working directory.
 
 ## Output
 The final output is a CSV file that contains the following columns for each DICOM file:
