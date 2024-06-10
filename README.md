@@ -20,18 +20,9 @@ If Pydicom is not installed on your system, you can install it using the followi
     cd dicom-header-extractor
     ```
 
-2. Set the directory to search for DICOM files and the de-identification option in `config.txt`.
-
-
-    Example `config.txt`:
-    ```
-    directory_to_search=/path/to/your/directory
-    deidentify=False
-    ```
-
-3. Run the script:
+2. Run the script:
     ```bash
-    python main.py
+    python main.py --directory /path/to/your/directory --deidentify
     ```
 
 The output CSV file will be generated in the same directory.
