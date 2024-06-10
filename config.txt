@@ -1,1 +1,2 @@
-directory_to_search=.
+directory_to_search='/path/to/your/directory'
+deidentify=False
