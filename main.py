@@ -7,8 +7,9 @@ def load_config(config_file='config.txt'):
     config = {}
     with open(config_file, 'r') as file:
         for line in file:
-            name, value = line.strip().split('=')
-            config[name] = value
+            if '=' in line:
+                name, value = line.strip().split('=', 1)
+                config[name] = value
     return config
 
 if __name__ == "__main__":
