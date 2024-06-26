@@ -1,7 +1,8 @@
 import sys
 import os
 import argparse
-from PyQt5.QtWidgets import QApplication, QFileDialog, QPushButton, QVBoxLayout, QWidget
+import pydicom.encoders
+from PyQt5.QtWidgets import QApplication, QFileDialog, QPushButton, QVBoxLayout, QWidget, QLabel, QProgressBar
 from find_dcm_files import find_dcm_files
 from extract_dicom_header import extract_dicom_header
 from deidentify import deidentify
@@ -25,23 +26,40 @@ class MainWindow(QWidget):
         self.button_select_output = QPushButton('Select Output File', self)
         self.button_select_output.clicked.connect(self.showFileDialog)
         layout.addWidget(self.button_select_output)
+
+        self.directory_label = QLabel('Selected Directory: ', self)
+        layout.addWidget(self.directory_label)
+
+        self.output_label = QLabel('Selected Output File: ', self)
+        layout.addWidget(self.output_label)
+
+        self.progress_label = QLabel('Progress: ', self)
+        layout.addWidget(self.progress_label)
+
+        self.progress_bar = QProgressBar(self)
+        layout.addWidget(self.progress_bar)
         
         self.setLayout(layout)
     
     def showDirectoryDialog(self):
         self.directory = QFileDialog.getExistingDirectory(self, 'Select Directory', '/')
-        
+        self.directory_label.setText(f'Selected Directory: {self.directory}')
+    
     def showFileDialog(self):
         if hasattr(self, 'directory'):
             self.output_file, _ = QFileDialog.getSaveFileName(self, 'Save CSV', '/', 'CSV Files (*.csv)')
             if self.output_file:
+                self.output_label.setText(f'Selected Output File: {self.output_file}')
                 self.extract_metadata()
     
     def extract_metadata(self):
         dcm_files = find_dcm_files(self.directory)
+        total_files = len(dcm_files)
+        current_progress = 0
+        self.progress_bar.setMaximum(total_files)
         
         all_headers = []
-        for dicom_file in dcm_files:
+        for idx, dicom_file in enumerate(dcm_files, start=1):
             header, sop_class_uid, study_uid, series_uid = extract_dicom_header(dicom_file)
             if deidentify_option:
                 header = deidentify(header)
@@ -52,8 +70,13 @@ class MainWindow(QWidget):
                 "Study UID": study_uid,
                 "Series UID": series_uid
             })
+            current_progress = idx
+            self.progress_bar.setValue(current_progress)
+            self.progress_label.setText(f'Progress: {current_progress}/{total_files}')
+            QApplication.processEvents()  # Update the GUI
         
         save_to_csv(all_headers, self.output_file)
+        self.progress_label.setText(f'Completed processing {total_files} files.')
         print(f"Metadata extraction and saving to CSV completed at {self.output_file}")
 
 def load_config(config_file='config.txt'):
