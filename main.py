@@ -27,13 +27,15 @@ if __name__ == "__main__":
     
     all_headers = []
     for dicom_file in dcm_files:
-        header, sop_class_uid = extract_dicom_header(dicom_file)
+        header, sop_class_uid, study_uid, series_uid = extract_dicom_header(dicom_file)
         if deidentify_option:
             header = deidentify(header)
         all_headers.append({
             "File Name": dicom_file,
             "Header": header,
-            "SOP Class UID": sop_class_uid
+            "SOP Class UID": sop_class_uid,
+            "Study UID": study_uid,
+            "Series UID": series_uid
         })
     
     save_to_csv(all_headers, 'output.csv')
