@@ -31,6 +31,8 @@ The 'output.csv' file will be generated in your working directory.
 The final output is a CSV file that contains the following columns for each DICOM file:
 - File Name
 - SOP Class UID
+- Study Instance UID
+- Series Instance UID
 - Tag
 - Attribute Name
 - Value
