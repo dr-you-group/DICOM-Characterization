@@ -19,9 +19,9 @@ DICOM Metadata Extractor is a graphical user interface (GUI) application develop
 ### For Windows:
 
 1. Installation:
-   - Download the Windows installer [here](https://drive.google.com/file/d/17E1JVQ7Eko2_aJnMCwa0pziIqIpETnUI/view?usp=drive_link).
+   - Download the Windows installer [here](https://drive.google.com/file/d/1_WwMhjJL4Wje2_fNypDZK0kUE_3KFiMl/view?usp=sharing).
    - Extract the downloaded ZIP file.
-   - Inside the extracted folder, run `main.exe` to launch the application.
+   - Inside the extracted folder, run `dicom-header-extractor.exe` to launch the application.
 
 2. Steps to Use:
    - Click on the Select Directory button to choose a folder containing DICOM files.
@@ -34,9 +34,9 @@ DICOM Metadata Extractor is a graphical user interface (GUI) application develop
 ### For macOS:
 
 1. Installation:
-   - Download the macOS installer [here](https://drive.google.com/file/d/1tYCx-UA2h6waTXDPyEnU-6qUm29ZgQgP/view?usp=drive_link).
+   - Download the macOS installer [here](https://drive.google.com/file/d/1csmpAYqmiIF60swIJA4TUmD_gKxFd1Se/view?usp=drive_link).
    - Extract the downloaded ZIP file.
-   - Inside the extracted folder, run `main.app` to install the application.
+   - Inside the extracted folder, run `dicom-header-extractor.app` to install the application.
 
 2. Steps to Use:
    - Open the Applications folder and find DICOM Metadata Extractor.
