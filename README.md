@@ -44,7 +44,7 @@ This project extracts DICOM headers, de-identifies specific tags (optional), and
 #### Usage Instructions:
 
 1. **Download and Extract**:
-   - Download `dicom-header-extractor_exe.zip` from the repository.
+   - Download [dicom-header-extractor_exe.zip](https://github.com/dr-you-group/dicom-header-extractor/blob/main/dicom-header-extractor_exe.zip) from the repository.
    - Extract the contents to a directory of your choice.
 
 2. **Run the Program**:
